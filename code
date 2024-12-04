@@ -1,24 +1,25 @@
 from random import randint,choice
 from time import sleep,time
-pos=50
+length=200
+pos=length//2
 l=0
-r=100
+r=length
 while True:
     def left():
         global pos,l,r
         while time()-timer<5:
-            l+=randint(-1,1) if l>50 else randint(0,2)
-            r=min(100,r+randint(0,2))
+            l+=randint(-1,1) if l>length//2 else randint(0,2)
+            r=min(length,r+randint(0,2))
             pos=max(pos,l)
-            print(l*'*'+(pos-l)*' '+'@'+(100-pos-(100-r))*' '+(100-r)*'*'+'|') 
+            print(l*'*'+(pos-l)*' '+'@'+(length-pos-(length-r))*' '+(length-r)*'*'+'|') 
             sleep(0.05)
     def right():
         global pos,r,l
         while time()-timer<5:
-            r+=randint(-1,1) if r<50 else randint(-2,0)
+            r+=randint(-1,1) if r<length//2 else randint(-2,0)
             l=max(0,l+randint(-2,0))
             pos=min(pos,r)
-            print(l*'*'+(pos-l)*' '+'@'+(r-pos)*' '+(100-r)*'*'+'|') 
+            print(l*'*'+(pos-l)*' '+'@'+(r-pos)*' '+(length-r)*'*'+'|') 
             sleep(0.05)
 
     timer=time()
